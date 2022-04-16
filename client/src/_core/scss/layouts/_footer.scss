@@ -1,0 +1,32 @@
+.footer {
+    width: 100%;
+    background-color: #181821;
+
+    .wrapper-footer {
+        padding: 50px 28px 30px 118px;
+
+        .footer_top {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: space-around;
+            padding: 15px 0;
+            border-bottom: 1px solid #fff;
+
+            color: aqua;
+        }
+        .footer_bottom {
+            display: flex;
+            text-align: center;
+            justify-content: space-around;
+
+            .footer_bottom-sub {
+                .footer_bottom-sub_item {
+                    color: #fff;
+                    font-size: 17px;
+                    padding: 10px 0;
+                }
+            }
+        }
+    }
+}

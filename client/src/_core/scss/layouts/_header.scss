@@ -1,0 +1,136 @@
+@import './mixin';
+
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    
+    width: 100%;
+    height: 68px;
+    z-index: 20;
+    
+    padding: 0 28px;
+    background-color: #FFF;
+    border-bottom: 1px solid #3333;
+
+    .header-logo {
+        display: flex;
+        justify-content: flex-start;
+
+        .header-logo_link {
+
+            .header-logo_icon {
+                width: 28px;
+                height: 28px;
+                color: rgb(18, 136, 214);
+
+                // display: inline-block;
+                animation: rotation 5s infinite linear;
+
+                @keyframes rotation {
+                    from {
+                      transform: rotate(0deg);
+                    }
+                    to {
+                      transform: rotate(600deg);
+                    }
+                }
+            }
+
+            @include maxWidth(768px) {
+                display: none;
+            }
+        }
+
+        .header-logo_title {
+            padding-top: 4px;
+            color: #000;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-left: 16px;
+
+            @include maxWidth(768px) {
+                padding-top: 0;
+                
+            }
+        }
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: center;
+
+        .header-content-wrapper {
+            display: flex;
+            justify-content: center;
+            border: 2px solid #e8e8e8;
+            border-radius: 20px;
+            flex: 1 1;
+
+            height: 40px;
+            padding: 0 16px 0 8px;
+            transition: border-color .2s ease-in-out;
+            width: 420px;
+
+            .header-search_icon {
+                background-image: url('../../icons/search.svg');
+                background-position: 50%;
+                background-repeat: no-repeat;
+                background-size: 18px;
+
+                border-radius: 50%;
+                height: 38px;
+                opacity: 0.7;
+                transition: opacity 0.2s ease-in-out;
+                width: 40px;
+            }
+
+            .header-search_input {
+                width: 380px;
+                border: none;
+                outline: none;
+                background: transparent;
+                
+            }
+            
+        }
+        @include maxWidth(768px) {
+            display: none;
+        }
+        
+    }
+    .header-auth {
+    
+        .header-auth_action {
+            width: 110px;
+            height: 32px;
+            font-size: 13px;
+
+            border: none;
+            border-radius: 20px;
+            background-color: #03a1fe;
+            color: #fff;
+
+            &:hover {
+                background-color: #20abfc;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .header-menu-mobile {
+        display: none;
+
+        @include maxWidth(768px) {
+            display: block;
+            width: 28px;
+            height: 28px;
+            color: black;
+
+            &:hover {
+                cursor: pointer;
+                opacity: .7;
+            }
+        }
+    }
+}

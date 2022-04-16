@@ -1,0 +1,14 @@
+@import './base/index.scss';
+@import './layouts/main.scss';
+// @import './layouts/mixin.scss';
+
+.App {
+    // background-image: url('../../../public/img/bacgrounds/background.jpeg'), linear-gradient(to bottom, #3333,rgba(141, 123, 123, 0.2));
+    // background-image:linear-gradient(to top, red, #3333);
+    background-repeat: no-repeat;
+    background-position: top;
+    // background-size: cover;
+    background-color: #fff;
+    // @media (min-width: 768px)
+    // background: var(--slider_overlay_background,radial-gradient(ellipse,hsla(0,0%,8%,.3) 5%,hsla(0,0%,8%,.35) 18%,hsla(0,0%,8%,.85) 70%));
+}
