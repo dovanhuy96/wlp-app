@@ -12,13 +12,12 @@
 import express from 'express';
 import CORS from './src/providers/cors';
 import * as config from './src/config';
-import * as MySQLConnection from './src/db_pool/mysql_pool';
+import MySQLPool from './src/db_pool/mysql_pool'
 import routes from './src/routes/index'
 
 const app = express()
 
 async function wlpApp() {
-
 
 	app.use(CORS.handle)
 	app.use(express.json())
@@ -27,11 +26,8 @@ async function wlpApp() {
 
 	app.use('/api/', routes)
 
-	try {
-		MySQLConnection.init();	
-	} catch (error) {
-		console.log(error);
-	}
+	const pool = new MySQLPool(config.dbConfig)
+	app.set('dbPool', pool)
 	
 	const port = config.server.port || 5002
 	app.listen(port, () => {
