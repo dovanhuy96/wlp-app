@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import Login from "../pages/Auth/Login";
 
 const Home = lazy(() => import('../pages/Home/Home'));
-const Todo = lazy(() => import('../pages/Todo/Todo'));
+const Todo = lazy(() => import('../pages/Todo/index'));
 const Blog = lazy(() => import('../pages/Blog/Blog'));
 const Funny = lazy(() => import('../pages/Funny/Funny'));
 

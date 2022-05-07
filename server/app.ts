@@ -1,40 +1,45 @@
-import express, {Application, Response, Request} from 'express';
-import bodyParser from 'body-parser';
-import sequelizeConnection from './src/models/sequelize';
+/**
+ *        @file app.ts
+ * @application wlp-app
+ *     @summary Starting point of the application
+ * @description Handles the following middlwares:
+ *              - CORS 
+ *              - API routes
+ *              - Auto Update Schema
+ *              - Server
+ */
 
-export default function wlpApp() {
-    const app: Application = express();
-    sequelizeConnection
-        .authenticate()
-        .then(() => {
-            console.log("sequelizeConnection connected!")
-        })
-        .catch(() => {
-            // throw "error";
-            console.log("eerrr");
-            
-        });
-    
-    const PORT = process.env.PORT || 5000;
-    
-    // parse requests of content-type - application/x-www-form-urlencoded
-    app.use(bodyParser.urlencoded({ extended: true }))
-    
-    // parse requests of content-type - application/json
-    app.use(bodyParser.json())
-    
-    // app.use('', todoApi);
-    
-    app.get('/', (req: Request, res: Response) => {
-        res.send('Hello World! - Do Van Huy')
-    });
-    
-    
-    app.listen(PORT, () => {
-        console.log("port 5000 is listening!");
-    })
+import express from 'express';
+import CORS from './src/providers/cors';
+import * as config from './src/config';
+import * as MySQLConnection from './src/db_pool/mysql_pool';
+import routes from './src/routes/index'
+
+const app = express()
+
+async function wlpApp() {
 
 
-    // return app;
+	app.use(CORS.handle)
+	app.use(express.json())
+	app.use(express.urlencoded({ extended: true }))
+
+
+	app.use('/api/', routes)
+
+	try {
+		MySQLConnection.init();	
+	} catch (error) {
+		console.log(error);
+	}
+	
+	const port = config.server.port || 5002
+	app.listen(port, () => {
+		console.log(
+			'\x1b[33m%s\x1b[0m',
+			`Server :: Running @ 'http://localhost:${port}'`,
+		)
+	})
 }
+
 wlpApp();
