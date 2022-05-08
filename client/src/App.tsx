@@ -3,10 +3,9 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import Main from './layouts/publicLayouts/Main';
 import routeConfig from './routes/PublicRoute';
 
-import './_core/scss/base/index.scss';
+import './utils/scss/base/index.scss';
 import { FallBackView } from './layouts/Loading/LoadingComponent';
 import LoadingPage from './layouts/Loading/LoadingPage';
-import Error404 from './pages/ErrorsPage/Error404';
 
 const { routes, renderRoutes } = routeConfig;
 

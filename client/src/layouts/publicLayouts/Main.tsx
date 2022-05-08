@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
-import { listMenuItem } from '../../_core/constants/MenuItem';
+import { listMenuItem } from '../../constants/MenuItem';
 
 import {
     App_Content,

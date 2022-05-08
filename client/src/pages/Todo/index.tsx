@@ -1,5 +1,4 @@
 import React from 'react'
-import InputNameTask from './components/formActions/InputNameTask/Index';
 import ContainerTodo from './data';
 
 import { StyleTodo } from './Style';
