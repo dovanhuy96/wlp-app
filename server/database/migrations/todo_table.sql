@@ -7,7 +7,7 @@
 
 
 create table if not exists `wlp_app`.`todos_table`(
-`id` binary(16) not null primary key,
+`id` varchar(36) not null primary key,
 `name` varchar(45) not null,
 `priority` varchar(10) not null default 'low',
 `isActive` boolean not null default 1,
