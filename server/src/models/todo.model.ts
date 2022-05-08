@@ -19,7 +19,12 @@ import { NullableBoolean, NullableNumber, NullableString } from '../typings/type
  */
 
 export class Todo extends Common {
+    public id: NullableNumber = undefined
     public name: NullableString = undefined
+    public idDone: NullableBoolean = undefined
+    public isActive: NullableString = undefined
+    public description: NullableString = undefined
+    public priority: NullableString = undefined
 
     constructor(model?: any) {
         super()

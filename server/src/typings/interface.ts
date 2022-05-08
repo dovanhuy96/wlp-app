@@ -11,9 +11,6 @@
  *              - SQLStatementUpdate
  */
 
-import { User as UserModel } from '../models'
-import { Request } from 'express'
-
 export interface TokenExpire {
     days: number
     hours: number
@@ -25,14 +22,6 @@ export interface TokenBody {
     success: boolean
     tokenBody?: any
     error?: Error
-}
-
-export interface CUserAuthInfoRequest extends Request {
-    cUser: UserModel
-}
-
-export interface MulterRequest extends CUserAuthInfoRequest {
-    file: any
 }
 
 export interface SQLStatementInsert {
